@@ -15,13 +15,13 @@ const About = () => {
         <div >
           <h1 className=' text-center' style={{ fontSize: '24px', color: '#FFD700', fontWeight: 'bold' }}>About Us</h1>
           <p  className=' text-center'>Welcome to our Coffee House!</p>
-            <div className='d-flex'>
+            <div className='d-flex gap-5'>
                 <div>
           <h2 style={{ fontSize: '24px', color: '#FFD700', fontWeight: 'bold' }}>Our Story</h2>
-          <p >
+          <p  className='text-justify'>
            
 
-Since its inception in 1990, our coffee house has evolved into a beloved community hub, embracing coffee aficionados in a haven of warmth and hospitality. At the heart of our ethos is an unwavering commitment to excellence, evident in every cup we serve. Our coffee is not just a beverage; it's a testament to our meticulous sourcing and preparation, ensuring a taste experience that transcends expectations.
+Since its inception in 1990, our coffee house has evolved into a beloved community hub, embracing coffee aficionados in a haven of warmth and hospitality. At the heart of our ethos is an unwavering commitment to     excellence, evident in every cup we serve. Our coffee is not just a beverage; it's a testament to our meticulous    sourcing and preparation, ensuring a taste experience that transcends expectations.
 
 Beyond the brew, we pride ourselves on curating a cozy ambiance that transforms each visit into a moment of relaxation and pure enjoyment. Our establishment is more than a coffee destination; it's a space where individuals come together to share in the richness of community and connection. The passion for high-quality service fuels our endeavor to provide not only exceptional coffee but also an atmosphere that fosters camaraderie.
 
