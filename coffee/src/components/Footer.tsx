@@ -9,9 +9,9 @@ const Footer = () => {
         <Row>
           <Col md={4} sm={6}>
             <h5>Contact Us</h5>
-            <p>123 Coffee Street, Cityville</p>
+            <p>Shankhamul</p>
             <p>Email: info@coffeeshop.com</p>
-            <p>Phone: (123) 456-7890</p>
+            <p>Phone: 051-22345</p>
           </Col>
           <Col md={4} sm={6}>
             <h5>Our Location</h5>

@@ -66,16 +66,15 @@ html {
 }
 
 .loader-container {
-  /* Add any styles for the container if needed */
 }
 
 .rotating-image {
-  /* Add your rotating animation styles here */
+ 
   animation: rotate 2s infinite linear;
 }
 
 .pop-up-logo {
-  /* Add your pop-up animation styles here */
+
   animation: popUp 0.5s ease-in-out;
   transform-origin: center;
 }

@@ -1,6 +1,5 @@
-/* Home.css */
+
 .my-navbar {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    /* For Safari */
 }

@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Card, Col, Row, Image } from 'react-bootstrap';
-import MyNavbar from './Navbar';
-import Loader from './Loader';
+import MyNavbar from '../components/Navbar';
+import Loader from '../components/Loader';
 
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  WhatsappShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  WhatsappIcon,
-} from 'react-share';
-import Footer from './Footer';
+import { FaShare } from 'react-icons/fa';  
+import Footer from '../components/Footer';
 import Typography from '@mui/joy/Typography';
 
 const View = () => {
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState<any>({});
   const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
@@ -39,19 +32,29 @@ const View = () => {
     getProductsById();
   }, [id]);
 
-  const shareUrl = window.location.href;
+  const shareProduct = async () => {
+    try {
+      await navigator.share({
+        title: 'Product Share',
+        text: `${products.data.name} - ${products.data.description}`,
+        url: window.location.href,
+      });
+    } catch (error) {
+      console.error('Error sharing:', error);
+    }
+  };
 
   return (
     <>
       <MyNavbar />
-      <div className="min-vh-100  " >
+      <div className="min-vh-100">
         {isLoading ? (
           <Loader />
         ) : (
-          <div className="container ">
+          <div className="container">
             <Row className="justify-content-center">
               <Col md={8}>
-                <Card className="shadow-sm " style={{marginTop:"10rem",marginBottom:"10rem", backgroundColor:"#6a413c " }} >
+                <Card className="shadow-sm" style={{ marginTop: "10rem", marginBottom: "10rem", backgroundColor: "#6a413c" }}>
                   <Row className="g-0">
                     <Col md={4}>
                       <Image
@@ -59,14 +62,14 @@ const View = () => {
                         alt=""
                         fluid
                         rounded
-                        className="w-100 h-100 "
+                        className="w-100 h-100"
                       />
                     </Col>
                     <Col md={8} className="d-flex flex-column justify-content-center">
                       <Card.Body className='mt-5 text-white'>
-                        <Typography variant="h5" className="mb-3 text-white font-bold">
+                        <Typography  className="mb-3 text-white">
                           {products.data.name}
-                        </Typography >
+                        </Typography>
                         <Typography className="text-white">Price: ${products.data.price}</Typography>
                         <Typography className="text-white">Type: {products.data.type}</Typography>
                         <Typography className="text-white">Origin: {products.data.origin}</Typography>
@@ -74,15 +77,9 @@ const View = () => {
                           Description: {products.data.description}
                         </Typography>
                         <div className="d-flex mt-3">
-                          <FacebookShareButton url={shareUrl} className="me-2">
-                            <FacebookIcon size={32} round />
-                          </FacebookShareButton>
-                          <TwitterShareButton url={shareUrl} className="me-2">
-                            <TwitterIcon size={32} round />
-                          </TwitterShareButton>
-                          <WhatsappShareButton url={shareUrl}>
-                            <WhatsappIcon size={32} round />
-                          </WhatsappShareButton>
+                          <button onClick={shareProduct} className="me-2">
+                            <FaShare size={32} />
+                          </button>
                         </div>
                       </Card.Body>
                     </Col>
